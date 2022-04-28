@@ -4,7 +4,7 @@
   "description": "Adding leetcode questions I do",
   "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.21.0",
     "@typescript-eslint/parser": "^5.21.0",
-    "eslint": "^8.14.0"
+    "eslint": "^8.14.0",
+    "jest": "^28.0.2"
   }
 }
