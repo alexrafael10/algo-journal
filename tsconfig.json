@@ -7,17 +7,8 @@
         "target": "es2021",
         "esModuleInterop": true,
         "skipLibCheck": true,
-        "forceConsistentCasingInFileNames": true,
-        "allowUnusedLabels": false,
-        "allowUnreachableCode": false,
-        "noFallthroughCasesInSwitch": true,
-        "noImplicitOverride": true,
-        "noImplicitReturns": true,
-        "noPropertyAccessFromIndexSignature": true,
-        "noUncheckedIndexedAccess": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
-        "importsNotUsedAsValues": "error",
-        "checkJs": true
+        "allowJs": true
     }
 }
