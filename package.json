@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npx ts-node",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
-    "watch-test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watch"
+    "watch-test": "npm run test -- --watch"
   },
   "repository": {
     "type": "git",
