@@ -5,7 +5,8 @@
   "main": "index.ts",
   "scripts": {
     "build": "npx ts-node",
-    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest"
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
+    "watch-test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watch"
   },
   "repository": {
     "type": "git",
