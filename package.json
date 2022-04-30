@@ -4,6 +4,7 @@
   "description": "Adding leetcode questions I do",
   "main": "index.ts",
   "scripts": {
+    "build": "npx ts-node",
     "test": "jest"
   },
   "repository": {
@@ -20,7 +21,8 @@
     "@typescript-eslint/eslint-plugin": "^5.21.0",
     "@typescript-eslint/parser": "^5.21.0",
     "eslint": "^8.14.0",
-    "jest": "^28.0.2"
+    "jest": "^28.0.2",
+    "prettier": "2.6.2"
   },
   "dependencies": {
     "ts-node": "^10.7.0",
