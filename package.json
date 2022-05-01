@@ -4,10 +4,11 @@
   "description": "Adding leetcode questions I do",
   "main": "index.ts",
   "scripts": {
-    "build": "npx ts-node -O \"{\\\"module\\\":\\\"commonjs\\\"}\" ",
+    "build": "npx ts-node -O \"{\\\"module\\\":\\\"commonjs\\\"}\"",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
     "watch-test": "npm run test -- --watch",
-    "watch": "ts-node-dev -O \"{\\\"module\\\":\\\"commonjs\\\"}\" --respawn --transpile-only"
+    "watch": "ts-node-dev -O \"{\\\"module\\\":\\\"commonjs\\\"}\" --respawn --transpile-only",
+    "create": "npx ts-node -O \"{\\\"module\\\":\\\"commonjs\\\"}\" ./scripts/create.ts"
   },
   "repository": {
     "type": "git",
