@@ -1,28 +1,29 @@
 import { Logger } from "../utils";
 
 export const myAtoi = (s: string): number => {
-  // #1
-  const trimmedInput = s.replace(/^( )+/g, "").replace(/( )+$/g, "").split("");
-  let sign = null;
+  const trimmedInput = s
+    .replace(/^( )+|( )+$/g, "")
+    .split("");
+
+  let sign = +1;
 
   let onlyNumbers = "";
 
   for (let i = 0; i < trimmedInput.length; i++) {
     const curr = trimmedInput[i];
+    const isSignChar = ["+", "-"].includes(curr);
 
-    if (sign !== null && ["+", "-"].includes(curr)) {
-      onlyNumbers = "";
-      break;
-    }
-
-    if (["+", "-"].includes(curr)) {
-      sign = curr === "+" ? +1 : -1;
+    if (/[\d]/.test(curr)) {
+      onlyNumbers += curr;
       continue;
     }
 
-    // #3
-    if (/[\d]/.test(curr)) {
-      onlyNumbers += curr;
+    if (i > 0 && isSignChar) {
+      break;
+    }
+
+    if (isSignChar) {
+      sign = curr === "+" ? +1 : -1;
       continue;
     }
 
@@ -30,6 +31,7 @@ export const myAtoi = (s: string): number => {
   }
  
   const parsedNumber = parseInt(onlyNumbers || "0") * sign;
+
 
   const clampRange = [-(2 ** 31), 2**31 - 1];
 

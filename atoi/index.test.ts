@@ -32,4 +32,11 @@ describe("atoi", () => {
   test('Input: s = "+-12" | Output: 0', () => {
     expect(myAtoi("+-12")).toBe(0);
   });
+  test('Input: s = "00000-42a1234" | Output: 0', () => {
+    expect(myAtoi("00000-42a1234")).toBe(0);
+  });
+
+  test('Input: s = "-5-" | Output: -5', () => {
+    expect(myAtoi("-5-")).toBe(-5);
+  });
 });
