@@ -32,6 +32,9 @@ describe("${functionName}", () => {
 });
 `.trim();
 
+const defaultReadmeTemplate = () => `
+`;
+
 
 const createExercice = (folderName: string, defaultFunctionName = folderName) => {
   if (!fs.existsSync(folderName)) {
@@ -48,6 +51,10 @@ const createExercice = (folderName: string, defaultFunctionName = folderName) =>
   fs.writeFileSync(
     folderName + "/index.test.ts",
     defaultTestTemplate(defaultFunctionName)
+  );
+  fs.writeFileSync(
+    folderName + "/README.md",
+    defaultReadmeTemplate()
   );
 }
 
