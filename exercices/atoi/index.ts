@@ -1,4 +1,4 @@
-import { Logger } from "../utils";
+import { Logger } from "../../utils";
 
 export const myAtoi = (s: string): number => {
   const trimmedInput = s
