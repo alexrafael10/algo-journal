@@ -1,4 +1,4 @@
-import { Logger } from "../../utils";
+import { Logger } from "../../utils/Logger";
 
 export const isNumber = (s: string): boolean => {
   const sign = `[+-]`;
@@ -20,12 +20,12 @@ if (require.main === module) {
   const s = args[2] ?? null;
 
   if (!s) {
-    Logger.warn(
+    logger.warn(
       "Assumed watch mode; Please provide an argument if not intended"
     );
     const ss = "-.5";
-    Logger.info(`[watch-mode] Input: "${ss}", Output: ${isNumber(ss)}`);
+    logger.info(`[watch-mode] Input: "${ss}", Output: ${isNumber(ss)}`);
   } else {
-    Logger.info(`Input: "${s}", Output: ${isNumber(args[1])}`);
+    logger.info(`Input: "${s}", Output: ${isNumber(args[1])}`);
   }
 }

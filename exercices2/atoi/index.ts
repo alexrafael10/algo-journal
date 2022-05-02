@@ -1,4 +1,4 @@
-import { Logger } from "../../utils";
+import { Logger } from "../../utils/Logger";
 
 export const myAtoi = (s: string): number => {
   const trimmedInput = s
@@ -47,12 +47,12 @@ if (require.main === module) {
   const s = args[2] ?? null;
 
   if (!s) {
-    Logger.warn(
+    logger.warn(
       "Assumed watch mode; Please provide an argument if not intended"
     );
     const ss = "42";
-    Logger.info(`[watch-mode] Input: "${ss}", Output: ${myAtoi(ss)}`);
+    logger.info(`[watch-mode] Input: "${ss}", Output: ${myAtoi(ss)}`);
   } else {
-    Logger.info(`Input: "${s}", Output: ${myAtoi(s)}`);
+    logger.info(`Input: "${s}", Output: ${myAtoi(s)}`);
   }
 }
