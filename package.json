@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "description": "Adding leetcode questions I do",
   "main": "index.ts",
+  "type": "module",
   "scripts": {
-    "build": "npx ts-node -O \"{\\\"module\\\":\\\"commonjs\\\"}\"",
+    "build": "npx ts-node --esm",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
     "watch-test": "npm run test -- --watch",
-    "watch": "ts-node-dev -O \"{\\\"module\\\":\\\"commonjs\\\"}\" --respawn --transpile-only",
-    "create": "npx ts-node -O \"{\\\"module\\\":\\\"commonjs\\\"}\" ./scripts/create.ts"
+    "watch": "nodemon",
+    "create": "npx ts-node --esm ./scripts/create.ts"
   },
   "repository": {
     "type": "git",
@@ -25,19 +26,20 @@
     "@babel/preset-env": "^7.17.10",
     "@babel/preset-typescript": "^7.16.7",
     "@types/jest": "^27.4.1",
+    "@types/node": "^17.0.39",
     "@typescript-eslint/eslint-plugin": "^5.21.0",
     "@typescript-eslint/parser": "^5.21.0",
     "babel-jest": "^28.0.3",
-    "eslint": "^8.14.0",
     "eslint-config-prettier": "^8.5.0",
+    "eslint": "^8.14.0",
     "jest": "^28.0.3",
+    "nodemon": "^2.0.16",
     "prettier": "2.6.2",
     "ts-jest": "^28.0.0-next.3",
-    "ts-node-dev": "^1.1.8"
   },
   "dependencies": {
     "cross-env": "^7.0.3",
-    "ts-node": "^10.7.0",
-    "typescript": "^4.6.4"
+    "ts-node": "^10.8.0",
+    "typescript": "^4.7.3"
   }
 }
