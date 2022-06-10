@@ -35,7 +35,7 @@
     "jest": "^28.0.3",
     "nodemon": "^2.0.16",
     "prettier": "2.6.2",
-    "ts-jest": "^28.0.0-next.3",
+    "ts-jest": "^28.0.0-next.3"
   },
   "dependencies": {
     "cross-env": "^7.0.3",
