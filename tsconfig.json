@@ -5,5 +5,6 @@
         "esModuleInterop": true,
         "skipLibCheck": true,
         "noUnusedParameters": true,
+        "strictNullChecks": true
     }
 }
