@@ -46,19 +46,27 @@ export const insertNodeAsc = (list: ListNode | null, node: ListNode | null) => {
 
 };
 
-Logger.info("Create New List: ");
-const list = createList([2, 5, 10]);
-prettyPrintList(list);
+export const reverseList = (node: ListNode | null): ListNode | null => {
+  let prev: ListNode | null = null;
 
-Logger.info("Insert Element in the middle: (4)");
-const newList1 = insertNodeAsc(list, new ListNode(4));
-prettyPrintList(newList1);
+  while (node) {
+    const next = node.next;
+    node.next = prev;
+    prev = node;
+    node = next;
+  }
 
-Logger.info("Insert Element in the beginning: (1)");
-const newList2 = insertNodeAsc(list, new ListNode(1));
-prettyPrintList(newList2);
+  return prev;
+};
 
-Logger.info("Insert Element in the end: (11)");
-const newList3 = insertNodeAsc(list, new ListNode(11));
-prettyPrintList(newList3);
+export const listMiddlePoint = (head: ListNode | null) => {
+  let fast = head;
+  let slow = head;
 
+  while (fast?.next) {
+    fast = fast.next.next;
+    slow = slow?.next ?? null;
+  }
+
+  return slow;
+}
