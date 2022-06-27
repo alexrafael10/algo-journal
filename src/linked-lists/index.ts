@@ -1,6 +1,4 @@
-import { Logger } from "../utils.js";
 import { ListNode } from "./types.js";
-import { prettyPrintList } from "./utils.js"
 
 /**
  * Creates a list from a given array of numbers
@@ -10,7 +8,7 @@ export const createList = (arr: number[]) => {
 
   const next = arr.length === 1 ? null : createList(rest);
   return new ListNode(value, next);
-}
+};
 
 /**
  * Insert a node in an ordered list (asc)
@@ -43,7 +41,6 @@ export const insertNodeAsc = (list: ListNode | null, node: ListNode | null) => {
   }
 
   return list;
-
 };
 
 export const reverseList = (node: ListNode | null): ListNode | null => {
@@ -69,4 +66,4 @@ export const listMiddlePoint = (head: ListNode | null) => {
   }
 
   return slow;
-}
+};
