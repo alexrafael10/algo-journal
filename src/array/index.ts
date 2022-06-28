@@ -20,9 +20,11 @@ export const isEquals = (target: unknown, compare: unknown) => {
   return target === compare;
 };
 
-logger.silent = true;
+logger.silent = false;
 
 export const shortestVacationPossible = (A: number[]): number => {
+  let shortest = Infinity;
+
   let start = 0;
   let end = 0;
 
@@ -33,8 +35,8 @@ export const shortestVacationPossible = (A: number[]): number => {
 
     logger.info(map);
 
-    if (i === 3) {
-      logger.info(A[start], A[i], map[A[i]]);
+    if (A[start] !== A[end] || map[A[i]] === 1) {
+      end = i;
     }
 
     while (A[start] === A[i] && map[A[i]] > 1) {
@@ -42,12 +44,12 @@ export const shortestVacationPossible = (A: number[]): number => {
       map[A[i]]--;
     }
 
-    if (map[A[i]] === 1) end = i;
+    shortest = Math.min(end - start + 1, shortest);
 
     logger.info({ i, curr: A[i], start, end, map }, "\n");
   }
 
-  return end - start + 1;
+  return shortest;
 };
 
 export const maxSubArray = (nums: number[]): number => {
