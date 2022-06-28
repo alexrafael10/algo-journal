@@ -59,3 +59,20 @@ export const maxSubArray = (nums: number[]): number => {
   }
   return max;
 };
+
+export const twoSum = (nums: number[], target: number): number[] => {
+  const map: { [k: number]: number } = {};
+
+  for (let i = 0; i < nums.length; i++) {
+    const current = nums[i];
+
+    if (map[current] >= 0) {
+      return [map[current], i];
+    }
+
+    map[target - current] = i;
+  }
+
+  //just to make TS Happy, not reachable
+  return [-1, -1];
+};
