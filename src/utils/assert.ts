@@ -1,5 +1,5 @@
 import { isEquals } from "../array/index.js";
-import { Logger } from "../utils.js";
+import Logger from "../utils/Logger.js";
 
 type AssertionCallback = (...params: unknown[]) => boolean;
 
@@ -7,17 +7,21 @@ const TAB = "  ";
 const SUCCESS_MESSAGE = "✓ Assertion Passed";
 const FAIL_MESSAGE = "✘ Assertion Failed";
 
-const logger = new Logger();
-
 const logResults = (assertion: boolean, expected, received) => {
+  // enable logging for this function if silent was set before
+  const loggerIsMuted = Logger.silent;
+  if (loggerIsMuted) Logger.silent = false;
+
   if (assertion) {
-    logger.info(SUCCESS_MESSAGE);
-    return;
+    Logger.info(SUCCESS_MESSAGE);
+  } else {
+    const errorMessage = `${TAB}- Expected: ${expected}\n${TAB}+ Received: ${received}`;
+    Logger.error(FAIL_MESSAGE);
+    Logger.info(errorMessage);
   }
 
-  const errorMessage = `${TAB}- Expected: ${expected}\n${TAB}+ Received: ${received}`;
-  logger.error(FAIL_MESSAGE);
-  logger.info(errorMessage);
+  // go back to previews Logger.silent before the function ran
+  Logger.silent = loggerIsMuted;
 };
 
 const runComparator = (

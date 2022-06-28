@@ -1,5 +1,4 @@
-import { Logger } from "../utils.js";
-const logger = new Logger();
+import Logger from "../utils/Logger.js";
 
 export const arrayEquals = (arrA: unknown[] = [], arrB: unknown[]) => {
   if (arrA.length !== arrB.length) return false;
@@ -20,8 +19,6 @@ export const isEquals = (target: unknown, compare: unknown) => {
   return target === compare;
 };
 
-logger.silent = false;
-
 export const shortestVacationPossible = (A: number[]): number => {
   let shortest = Infinity;
 
@@ -33,7 +30,7 @@ export const shortestVacationPossible = (A: number[]): number => {
   for (let i = 1; i < A.length; i++) {
     map[A[i]] = (map[A[i]] ?? 0) + 1;
 
-    logger.info(map);
+    Logger.info(map);
 
     if (A[start] !== A[end] || map[A[i]] === 1) {
       end = i;
@@ -46,7 +43,7 @@ export const shortestVacationPossible = (A: number[]): number => {
 
     shortest = Math.min(end - start + 1, shortest);
 
-    logger.info({ i, curr: A[i], start, end, map }, "\n");
+    Logger.info({ i, curr: A[i], start, end, map }, "\n");
   }
 
   return shortest;
