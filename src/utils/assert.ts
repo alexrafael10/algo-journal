@@ -16,7 +16,10 @@ const isEqualsGeneric = (target: unknown, compare: unknown) => {
   }
 
   //If target is a TreeNode, then we expect compare to be an array
-  if (target instanceof TreeNode && Array.isArray(compare)) {
+  if (
+    (target instanceof TreeNode || target === null) &&
+    Array.isArray(compare)
+  ) {
     return arrayEquals(binaryTreeToArray(target), compare);
   }
 
