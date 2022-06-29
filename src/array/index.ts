@@ -6,19 +6,6 @@ export const arrayEquals = (arrA: unknown[] = [], arrB: unknown[]) => {
   return !anyDifferent;
 };
 
-export const isEquals = (target: unknown, compare: unknown) => {
-  if (typeof target !== typeof compare) return false;
-
-  if (Array.isArray(target) && Array.isArray(compare))
-    return arrayEquals(target, compare);
-
-  if (typeof target === "object" && typeof compare === "object") {
-    throw "not supported yet";
-  }
-
-  return target === compare;
-};
-
 export const shortestVacationPossible = (A: number[]): number => {
   let shortest = Infinity;
 
