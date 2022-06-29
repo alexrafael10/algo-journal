@@ -37,6 +37,7 @@ const runComparator = (
 export const expect = (received: unknown) => {
   return {
     toBe: (expected: unknown) => runComparator(isEquals, received, expected),
-    toBeFalsy: () => runComparator(() => !!received, received, expect),
+    toBeFalsy: () => runComparator(() => !received, received, false),
+    toBeTruthy: () => runComparator(() => !!received, received, true),
   };
 };
