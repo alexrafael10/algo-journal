@@ -67,7 +67,7 @@ const runComparator = (
   expected?: unknown
 ) => {
   const params = [received];
-  if (expected) params.push(expected);
+  if (typeof expected !== undefined) params.push(expected);
   logResults(comparator(...params), expected, received);
 };
 

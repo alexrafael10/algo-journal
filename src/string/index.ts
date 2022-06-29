@@ -1,22 +1,5 @@
 import Logger from "../utils/Logger.js";
 
-export const longestPalindrome = (s: string): string => {
-  return s[0];
-
-  const left = 0;
-  const right = 0;
-
-  const longest = s[0];
-
-  for (let i = 1; i < s.length; i++) {
-    const char = s.charAt(i);
-
-    if (s.charAt(left) === s.charAt(right)) {
-      //
-    }
-  }
-};
-
 export const isPalindrome = (s: string): boolean => {
   let left = 0;
   let right = s.length - 1;
@@ -43,4 +26,20 @@ export const isPalindrome = (s: string): boolean => {
   }
 
   return true;
+};
+
+export const isAnagram = (s: string, t: string): boolean => {
+  if (s.length !== t.length) return false;
+
+  const map: { [k: string]: number } = {};
+
+  for (let i = 0; i < s.length; i++) {
+    const charS = s.charAt(i);
+    const charT = t.charAt(i);
+
+    map[charS] = (map[charS] ?? 0) + 1;
+    map[charT] = (map[charT] ?? 0) - 1;
+  }
+
+  return Object.values(map).every((m) => m === 0);
 };
