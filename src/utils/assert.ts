@@ -1,5 +1,5 @@
 import { arrayEquals } from "../array/index.js";
-import { binaryTreeToArray, TreeNode } from "../trees/index.js";
+import { binaryTreeToArray, TreeNode } from "../tree/index.js";
 import Logger from "../utils/Logger.js";
 
 type AssertionCallback = (...params: unknown[]) => boolean;
