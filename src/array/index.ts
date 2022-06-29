@@ -63,3 +63,23 @@ export const twoSum = (nums: number[], target: number): number[] => {
   //just to make TS Happy, not reachable
   return [-1, -1];
 };
+
+export const binarySearch = (nums: number[], target: number): number => {
+  let left = 0;
+  let right = nums.length - 1;
+  let middle = Math.floor(right / 2);
+
+  while (left <= right) {
+    if (nums[middle] === target) return middle;
+
+    if (target < nums[middle]) {
+      right = middle - 1;
+    } else {
+      left = middle + 1;
+    }
+
+    middle = left + Math.floor((right - left) / 2);
+  }
+
+  return -1;
+};
