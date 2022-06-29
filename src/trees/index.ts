@@ -78,4 +78,16 @@ export const treeEquals = (a: TreeNode | null, b: TreeNode | null) => {
   return compare(a, b);
 };
 
-// function invertTree(root: TreeNode | null): TreeNode | null {}
+export const invertTree = (root: TreeNode | null): TreeNode | null => {
+  if (!root) return root;
+
+  if (root.left) root.left = invertTree(root.left);
+
+  if (root.right) root.right = invertTree(root.right);
+
+  const temp = root.left;
+  root.left = root.right;
+  root.right = temp;
+
+  return root;
+};
