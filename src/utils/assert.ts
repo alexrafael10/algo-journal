@@ -1,4 +1,5 @@
 import { arrayEquals } from "../array/index.js";
+import { matrixEquals } from "../matrix/index.js";
 import { binaryTreeToArray, TreeNode } from "../tree/index.js";
 import Logger from "../utils/Logger.js";
 
@@ -11,6 +12,17 @@ const FAIL_MESSAGE = "✘ Assertion Failed";
 const isEqualsGeneric = (target: unknown, compare: unknown) => {
   if (typeof target !== typeof compare) return false;
 
+  // check if we are comparing matrixes
+  if (
+    Array.isArray(target) &&
+    Array.isArray(target[0]) &&
+    Array.isArray(compare) &&
+    Array.isArray(compare[0])
+  ) {
+    return matrixEquals(target, compare);
+  }
+
+  // check if we are comparing arrays
   if (Array.isArray(target) && Array.isArray(compare)) {
     return arrayEquals(target, compare);
   }
@@ -23,16 +35,22 @@ const isEqualsGeneric = (target: unknown, compare: unknown) => {
     return arrayEquals(binaryTreeToArray(target), compare);
   }
 
+  // TODO: implement object comparison
   if (typeof target === "object" && typeof compare === "object") {
     throw "not supported yet";
   }
 
+  // if not, lets too basic comparison
   return target === compare;
 };
 
 const formatData = (data: unknown): string => {
   if (data instanceof TreeNode) {
     return `[${binaryTreeToArray(data).join()}]`;
+  }
+
+  if (Array.isArray(data) && Array.isArray(data[0])) {
+    return data.map((d) => `\n${TAB}${TAB}[${d.join()}]`).join(" ");
   }
 
   if (Array.isArray(data)) {

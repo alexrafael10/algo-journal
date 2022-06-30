@@ -35,3 +35,17 @@ export const kWeakestRows = (mat: number[][], k: number): number[] => {
 
   return ordered.splice(0, k);
 };
+
+export const matrixEquals = (mat: unknown[][], mat2: unknown[][]) => {
+  if (mat.length !== mat2.length || mat[0].length !== mat2[0].length) {
+    return false;
+  }
+
+  for (let i = 0; i < mat.length; i++) {
+    for (let j = 0; j < mat[0].length; j++) {
+      if (mat[i][j] !== mat2[i][j]) return false;
+    }
+  }
+
+  return true;
+};
